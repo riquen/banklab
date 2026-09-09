@@ -1,73 +1,178 @@
-# React + TypeScript + Vite
+# BankLab
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+BankLab is a learning project focused on building and evolving a modern financial application with React.
 
-Currently, two official plugins are available:
+The project starts as a frontend application and will gradually evolve to cover frontend architecture, microfrontends, cloud infrastructure, backend development, data, distributed systems, and system design.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Goals
 
-## React Compiler
+The main goals of this project are:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Strengthen React and JavaScript fundamentals.
+- Practice frontend architecture and technical decision-making.
+- Build a React SPA without relying on Next.js.
+- Explore state management strategies and their trade-offs.
+- Implement microfrontends using Module Federation.
+- Practice frontend deployment using AWS.
+- Introduce Infrastructure as Code.
+- Later evolve the project into a complete full-stack system.
 
-## Expanding the ESLint configuration
+## Current Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- React
+- TypeScript
+- Vite
+- React Router
+- Sass
+- Faker.js
+- ESLint
+- Prettier
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+The stack will evolve as new requirements are introduced.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Some technologies expected to be explored later include:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+- Zustand
+- TanStack Query
+- Storybook
+- Module Federation
+- AWS S3
+- AWS CloudFront
+- Terraform
+- Node.js
+- PostgreSQL
+- Redis
+- Messaging / Queues
+- Docker
+- Kubernetes
+
+## Project Direction
+
+The application will simulate a digital banking environment.
+
+Initial domains may include:
+
+- Authentication
+- Dashboard
+- Accounts
+- Transactions
+- Transfers
+- Cards
+
+The first version will use mocked data.
+
+As the project evolves, mocked data will be replaced by real APIs and backend services.
+
+## Architecture Evolution
+
+The project intentionally starts simple.
+
+```text
+React SPA
+   ↓
+Mocked data
+   ↓
+Client and server state strategies
+   ↓
+Feature-based architecture
+   ↓
+Microfrontends
+   ↓
+Module Federation
+   ↓
+AWS deployment
+   ↓
+Infrastructure as Code
+   ↓
+Backend APIs
+   ↓
+Database / Cache / Queues
+   ↓
+Distributed systems
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+Technologies will be introduced when there is a concrete problem or requirement that justifies them.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x';
-import reactDom from 'eslint-plugin-react-dom';
+## Getting Started
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+Install dependencies:
+
+```bash
+npm install
 ```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Create a production build:
+
+```bash
+npm run build
+```
+
+Preview the production build locally:
+
+```bash
+npm run preview
+```
+
+## Code Quality
+
+Run ESLint:
+
+```bash
+npm run lint
+```
+
+Format the project with Prettier:
+
+```bash
+npm run format
+```
+
+Check formatting without modifying files:
+
+```bash
+npm run format:check
+```
+
+Before considering a change complete, the following commands should succeed:
+
+```bash
+npm run lint
+npm run build
+npm run format:check
+```
+
+## Development Workflow
+
+Changes should preferably be developed in dedicated branches instead of directly on `main`.
+
+Example:
+
+```bash
+git checkout -b feat/application-shell
+```
+
+The intended workflow is:
+
+```text
+Issue
+  ↓
+Branch
+  ↓
+Implementation
+  ↓
+Lint / Build / Format check
+  ↓
+Pull Request
+  ↓
+Code Review
+  ↓
+Merge
+```
+
+The project will also be used to practice architecture discussions and code reviews, so implementation decisions and trade-offs are part of the learning process.
