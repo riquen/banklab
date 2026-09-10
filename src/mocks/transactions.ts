@@ -1,12 +1,9 @@
 import { faker } from '@faker-js/faker';
-
-export const mockTransactions = Array.from({ length: 20 }, () => ({
+import { TRANSACTION_TYPES, type Transaction } from '../services/getTransactions/types';
+export const mockTransactions: Transaction[] = Array.from({ length: 20 }, () => ({
   id: faker.string.uuid(),
   description: faker.company.name(),
-  amount: faker.number.float({
-    min: -1000,
-    max: 5000,
-    fractionDigits: 2,
-  }),
+  amountInCents: faker.number.int({ min: 100, max: 100000 }),
   date: faker.date.recent({ days: 30 }),
+  transactionType: faker.helpers.arrayElement(TRANSACTION_TYPES),
 }));
